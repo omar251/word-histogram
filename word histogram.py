@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import re
 import xlwt
 
-filename = "C:/Users/omar/Desktop/text.txt"
-filename2 = "C:/Users/omar/Desktop/out.txt"
+filename = "/Users/omarezzat/Documents/GitHub/text.txt"
+filename2 = "/Users/omarezzat/Documents/GitHub/out.txt"
 
 fr = open(filename, "r")
 y= fr.read()
@@ -70,4 +70,4 @@ for index, item in enumerate(performance):
         ws.write(first_row, 1, item) 
         first_row = first_row + 1
 
-wb.save('C:/Users/omar/Desktop/out.xls')
+wb.save('/Users/omarezzat/Documents/GitHub/out.xls')
