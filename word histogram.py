@@ -1,13 +1,18 @@
+#!/usr/local/bin
 import os,sys
 os.system('cls||clear')
+print(sys.version +"\n")
+print(sys.executable)
+
 import re
 import matplotlib.pyplot as plt; plt.rcdefaults()
-print(sys.version+"\n"+sys.executable)
+import xlwt
+
 count = 0; i=0; j=0; a=[] ;s=""
 
 # READ TEXT FROM FILE
 
-Path = "~/myGITrepo/word-histogram/"
+Path = "/Users/omarezzat/myGITrepo/word-histogram/"
 filename1 = Path+"text.txt"
 filename2 = Path+"out.txt"
 fr = open(filename1, "r")
@@ -28,7 +33,7 @@ while i < len(wordlist):
             count += 1
         j += 1
     a.append([wordlist[i],count])
-    #s = s + wordlist[i]+" "+str(count)+"\n"
+    s = s + wordlist[i]+" "+str(count)+"\n"
     i+=1
 
 # PLOT ARRAY A
@@ -42,31 +47,28 @@ plt.xticks(y_pos, objects)
 plt.xticks(fontsize=10, rotation=90)
 plt.ylabel('Usage')
 plt.title('Word usage')
- 
 plt.show()
-# s = ""
-# for h in range(len(a)):
-#     s = s +str(a[h][1]) +"           "+a[h][0]+"\n"
-# fr.close()
-# fw = open(filename2,"w")
-# fw.write(s)
-# fw.close()
 
+# SAVE DATA TO TEXT OUT
+s = ""
+for h in range(len(a)):
+    s = s +str(a[h][1]) +"           "+a[h][0]+"\n"
+fr.close()
+fw = open(filename2,"w")
+fw.write(s)
+fw.close()
 
+# SAVE DATA TO EXCEL OUT
+wb = xlwt.Workbook()
+ws = wb.add_sheet('Sheet 1')
+first_row = 0
+# write each item in the list to consecutive columns on the first row
+for index, item in enumerate(objects):
+        ws.write(first_row, 0, item) 
+        first_row = first_row + 1
+first_row = 0
+for index, item in enumerate(performance):
+        ws.write(first_row, 1, item) 
+        first_row = first_row + 1
 
-# wb = xlwt.Workbook()
-# ws = wb.add_sheet('Sheet 1')
-
-
-# first_row = 0
-
-# # write each item in the list to consecutive columns on the first row
-# for index, item in enumerate(objects):
-#         ws.write(first_row, 0, item) 
-#         first_row = first_row + 1
-# first_row = 0
-# for index, item in enumerate(performance):
-#         ws.write(first_row, 1, item) 
-#         first_row = first_row + 1
-
-# wb.save('/Users/omarezzat/myGITrepo/python/out.xls')
+wb.save(Path+"out.xls")
