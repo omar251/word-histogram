@@ -1,24 +1,25 @@
-import os
+import os,sys
 os.system('cls||clear')
 import re
 import matplotlib.pyplot as plt; plt.rcdefaults()
-
+print(sys.version+"\n"+sys.executable)
 count = 0; i=0; j=0; a=[] ;s=""
 
 # READ TEXT FROM FILE
 
-Path = "/Users/omarezzat/myGITrepo/python/"
+Path = "~/myGITrepo/word-histogram/"
 filename1 = Path+"text.txt"
 filename2 = Path+"out.txt"
 fr = open(filename1, "r")
 text = fr.read()
 
-# EXTRACT j FROM TEXT
+# EXTRACT WORDS FROM TEXT
 
 text = re.sub(r"[^a-z0-9 ]","",text.lower())
 textj = text.split(' ')
 wordlist = list(dict.fromkeys(textj))
-# COUNT j IN TEXT
+
+# COUNT WORDS IN TEXT
 
 while i < len(wordlist):
     j = 0 ;count = 0  
