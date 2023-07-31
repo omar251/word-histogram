@@ -7,9 +7,8 @@ count = 0; i=0; j=0; a=[] ;s=""
 
 # READ TEXT FROM FILE
 
-Path = "/Users/omarezzat/myGITrepo/python/"
-filename1 = Path+"text.txt"
-filename2 = Path+"out.txt"
+filename1 = "text.txt"
+filename2 = "out.txt"
 fr = open(filename1, "r")
 text = fr.read()
 

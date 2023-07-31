@@ -12,9 +12,8 @@ count = 0; i=0; j=0; a=[] ;s=""
 
 # READ TEXT FROM FILE
 
-Path = "/Users/omarezzat/myGITrepo/word-histogram/"
-filename1 = Path+"text.txt"
-filename2 = Path+"out.txt"
+filename1 = "text.txt"
+filename2 = "out.txt"
 fr = open(filename1, "r")
 text = fr.read()
 
@@ -71,4 +70,4 @@ for index, item in enumerate(performance):
         ws.write(first_row, 1, item) 
         first_row = first_row + 1
 
-wb.save(Path+"out.xls")
+wb.save("out.xls")
