@@ -10,8 +10,8 @@ from .visualization import plot_histogram
 
 __all__ = [
     "count_words",
-    "read_text_file", 
-    "save_to_text", 
-    "save_to_excel", 
-    "plot_histogram"
+    "read_text_file",
+    "save_to_text",
+    "save_to_excel",
+    "plot_histogram",
 ]
